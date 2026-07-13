@@ -69,7 +69,7 @@ python hiz_okuma.py
 ## 📸 Project Media & Gallery
 
 ## 👥 Developers & Contributors
-**Yavuz Selim Çakmak - Electrical & Electronics Engineer**
-**Ömeralp Koç - Electrical & Electronics Engineer**
+* **Yavuz Selim Çakmak - Electrical & Electronics Engineer**
+* **Ömeralp Koç - Electrical & Electronics Engineer**
 
 ### 📜 License Notice: All rights to the project are reserved. 
