@@ -4,7 +4,7 @@
 
 This project is a next-generation autonomous driving assistant and road status detection system designed to enhance traffic safety by integrating computer vision, image processing, and Industrial Internet of Things (IIoT) technologies.
 
-Leveraging the power of the Python ecosystem, the system establishes a real-time image processing pipeline over a camera stream to detect traffic signs, extract speed limits, and communicate with an industrial **GMT GLC-496T PLC** via the **Modbus TCP/IP** protocol to generate dynamic, physical alerts (lamp and relay control) for the driver.
+Leveraging the power of the **Python** ecosystem, the system establishes a real-time image processing pipeline over a camera stream to detect traffic signs, extract speed limits, and communicate with an industrial **GMT GLC-496T PLC** via the **Modbus TCP/IP** protocol to generate dynamic, physical alerts (lamp and relay control) for the driver.
 
 ---
 
@@ -75,3 +75,84 @@ python hiz_okuma.py
 * **Ömeralp Koç - Electrical & Electronics Engineer**
 
 ### 📜 License Notice: All rights to the project are reserved. 
+
+---
+
+# TR
+---
+# Akıllı Hız Levhası Tanıma ve Yol Durum Tespit Sistemi (PLC & Görüntü İşleme Entegrasyonu)
+
+Bu proje, bilgisayar görüsü, görüntü işleme ve Endüstriyel Nesnelerin İnterneti (IIoT) teknolojilerini entegre ederek trafik güvenliğini artırmayı hedefleyen yeni nesil bir otonom sürüş asistanı ve yol durum tespit sistemidir.
+
+**Python** ekosisteminin gücünden faydalanan sistem, kamera akışı üzerinden trafik levhalarını algılamak, hız limitlerini okumak ve sürücüye dinamik fiziksel uyarılar (lamba ve röle kontrolü) üretmek amacıyla **Modbus TCP/IP** protokolü üzerinden endüstriyel bir **GMT GLC-496T PLC** ile haberleşmek için gerçek zamanlı bir görüntü işleme veri boru hattı (pipeline) kurar.
+
+---
+
+## 🚀 Proje Özeti ve Çalışma Mantığı
+
+Sistem, yol kenarındaki kırmızı halkalı hız limit levhalarını gerçek zamanlı olarak tespit eder:
+* **Şehir Dışı Tespiti (Hız > 55 km/h):** Algılanan hız sınırı 55 km/h'nin üzerindeyse (örn. 70, 80), sistem şehir dışı moduna geçer ve endüstriyel pano üzerindeki uyarı lambası yanar.
+* **Şehir İçi Tespiti (Hız < 55 km/h):** Algılanan hız sınırı 55 km/h'nin altındaysa (örn. 50), uyarı lambası söner. Bu durum sürücüye bir şehir içi bölgesinde olduğunu ve hızını 55 km/h sınırının altında tutması gerektiğini bildirir.
+
+---
+
+## 🛠️ Yazılım Mimarisi ve Donanım Açıklaması
+
+### Yazılım Bileşenleri
+
+* **Python 3.x**
+* **OpenCV (`cv2`):** Gerçek zamanlı video akışını, BGR-HSV renk uzayı dönüşümlerini, kırmızı halka tespiti için ikili renk maskelemeyi (cv2.inRange), kontur çıkarımını (findContours) ve çokgen yaklaşımı (approxPolyDP) algoritması kullanarak İlgi Alanı (ROI) segmentasyonunu yönetir.
+* **Tesseract OCR (`pytesseract`):** Bölütlenmiş, gri tonlamalı ve ikili eşikleme (threshold) uygulanmış levha görüntülerindeki sayısal verileri (hız limitlerini) metin formatına dönüştürür. Performansı optimize etmek ve hatalı okumaları ortadan kaldırmak için metin çıkarımını sadece rakamlarla sınırlandıran özel Tesseract yapılandırma parametreleri (--psm 11 -c tessedit_char_whitelist=0123456789) kullanılır.
+* **NumPy:** Görüntü matrisleri üzerinde yüksek performanslı çok boyutlu dizi operasyonları sağlar, filtreleme değerlerini ve renk maskesi kombinasyonlarını (mask1 + mask2) işler.
+* **PyModbus:** Yazılım ile donanım arasındaki endüstriyel haberleşme köprüsü olarak görev yapar. OCR motoru tarafından ayrıştırılan hız limitleri, bir Modbus TCP/IP istemcisi (ModbusTcpClient) kullanılarak Ethernet üzerinden anlık olarak PLC'nin veri kütüklerine (write_register) iletilir.
+* **GMT Suite:** Ladder mantık diyagramlarını tasarlamak ve PLC donanım ortamını yapılandırmak için kullanılır.
+
+### Donanım Bileşenleri (PLC Pano Devresi)
+
+* **GMT GLC-496T PLC:** Sistemin mühürleme ve karşılaştırma işlemlerini yürüten mantıksal kontrol merkezidir.
+* **SPD2430 AC/DC Konvertör:** Şebekeden gelen alternatif akımı PLC ve kontrol girişleri için gereken stabil 24VDC (1.25A) doğru akıma dönüştüren endüstriyel güç kaynağıdır.
+* **EMAS REIP11 Röleler:** PLC'nin düşük voltajlı transistör çıkışlarını kullanarak 220V uyarı lambasını güvenli bir şekilde anahtarlayan aktüatörlerdir.
+* **Physical Start/Stop Butonları:** Sistem bitini başlatmak ve çalışma döngüsünü güvenli bir şekilde durdurmak için mühürleme mantığıyla yapılandırılmış endüstriyel butonlardır.
+
+---
+
+## 🌐 Ağ ve IP Yapılandırması
+
+Modbus TCP/IP üzerinden çakışmasız, düşük gecikmeli bir haberleşme sağlamak için tüm cihazlara aynı ağ alt ağında (subnet) sabit IP adresleri atanmıştır:
+
+* **GMT PLC IP Adresi:** `192.168.1.100` (Port: `502`)
+* **Ana Bilgisayar (PC) IP Adresi:** `192.168.1.101`
+* **Modbus Register Eşleşmesi:** GMT Suite içinde tanımlanan MW2000 operand veri bloğu, doğrudan Modbus üzerindeki 42001 adresine eşleşir. Python tarafında temel bellek offset değeri çıkarılarak verilerin doğrudan 2000 register adresine yazılması sağlanır.
+
+---
+
+## 💻 Kurulum ve Çalıştırma
+
+### 1. Bağımlılıkların Yüklenmesi
+Yerel işletim sisteminizde Tesseract OCR'ın kurulu olduğundan emin olun. Ardından, gerekli Python paketlerini pip kullanarak yükleyin:
+
+```bash
+pip install opencv-python pymodbus pytesseract numpy
+```
+
+### 2. Tesseract Binary Yolunun Tanımlanması
+Python betiği içindeki tesseract_cmd yol değişkenini, yerel ortamınızın kurulum dizinine uyacak şekilde güncelleyin:
+
+```python
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+```
+
+### 3. Pipeline Çalıştırması
+PLC kontrol panosuna enerji verin, fiziksel Ethernet bağlantı ışıklarının aktif olduğunu doğrulayın ve ana Python betiğini çalıştırın:
+```bash
+python hiz_okuma.py
+```
+
+## 📸 Projenin Görüntüleri ve Galerisi
+
+## 👥 Geliştiriciler ve Katkıda Bulunanlar
+* **Yavuz Selim Çakmak - Elektrik-Elektronik Mühendisi**
+* **Ömeralp Koç - Elektrik-Elektronik Mühendisi**
+
+### 📜 Lisans Bildirimi: Projenin tüm hakları saklıdır. 
+
