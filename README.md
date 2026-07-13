@@ -1,3 +1,5 @@
+# EN
+---
 # Smart Speed Limit Sign Recognition and Road Status Detection System (PLC & Computer Vision Integration)
 
 This project is a next-generation autonomous driving assistant and road status detection system designed to enhance traffic safety by integrating computer vision, image processing, and Industrial Internet of Things (IIoT) technologies.
