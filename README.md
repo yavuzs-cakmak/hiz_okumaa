@@ -69,43 +69,43 @@ python hiz_okuma.py
 ```
 
 ## 📸 Project Media & Gallery
-  * **1. The Successful Outcome of the Project**
+  ### * **1. The Successful Outcome of the Project**
   ![Image](https://github.com/user-attachments/assets/1044993b-f42a-4919-b254-bc303be47ec6)
 
    ---
-  * **2. PLC Panel Circuit Components**
+  ### * **2. PLC Panel Circuit Components**
   ![Image](https://github.com/user-attachments/assets/f974727d-3a00-47aa-b985-490f32815050)
 
    ---
-  * **3. Network Configuration (IP Settings) and Physical Connection**
+  ### * **3. Network Configuration (IP Settings) and Physical Connection**
   ![Image](https://github.com/user-attachments/assets/1270d13a-58f7-4396-8356-103f4efdfabf)
 
   ---
-  * **4. Packages I installed via CMD**
+  ### * **4. Packages I installed via CMD**
   ![Image](https://github.com/user-attachments/assets/52f5b2db-6b6d-45ae-91a0-e1a359e15bd3)
 
   ---
-  * **5. "PC Connected to PLC" Message**
+  ### * **5. "PC Connected to PLC" Message**
   ![Image](https://github.com/user-attachments/assets/a9a04724-6495-448a-945f-c9b6353418b4)
 
   ---
-  * **6. The Values ​​I Provided in the Operand**
+  ### * **6. The Values ​​I Provided in the Operand**
   ![Image](https://github.com/user-attachments/assets/bc74c1cb-a47d-468a-a548-aededfa8a247)
 
   ---
-  * **7. Configuring the PLC's IP Settings**
+  ### * **7. Configuring the PLC's IP Settings**
   ![Image](https://github.com/user-attachments/assets/29f9d28c-6019-45dd-adb5-3d9e368defe5)
 
   ---
-  * **8. The PLC Issues a Warning Light Signal When the Perceived Speed Exceeds 55 km/h**
+  ### * **8. The PLC Issues a Warning Light Signal When the Perceived Speed Exceeds 55 km/h**
   ![Image](https://github.com/user-attachments/assets/b7062c9c-b536-496e-952b-ed71c1acd967)
 
   ---
-  * **9. The PLC Doesn't Issue a Warning When the Detected Speed is Below 55 km/h**
+  ### * **9. The PLC Doesn't Issue a Warning When the Detected Speed is Below 55 km/h**
   ![Image](https://github.com/user-attachments/assets/8cfed555-2397-4bbb-9137-887dc8e08ff3)
 
   ---
-  * **10. Finally, The Successful Outcome of the Project**
+  ### * **10. Finally, The Successful Outcome of the Project**
   ![Image](https://github.com/user-attachments/assets/1044993b-f42a-4919-b254-bc303be47ec6)
 
   ---
@@ -189,43 +189,43 @@ python hiz_okuma.py
 ```
 
 ## 📸 Projenin Görüntüleri ve Galerisi
-  * **1. Projenin Başarılı Sonucu**
+  ### * **1. Projenin Başarılı Sonucu**
   ![Image](https://github.com/user-attachments/assets/1044993b-f42a-4919-b254-bc303be47ec6)-
 
    ---
-  * **2. PLC Pano Devresi Elemanları**
+  ### * **2. PLC Pano Devresi Elemanları**
   ![Image](https://github.com/user-attachments/assets/f974727d-3a00-47aa-b985-490f32815050)-
 
    ---
-  * **3. Ağ Yapılandırması (IP Ayarları) ve Fiziksel Bağlantı**
+  ### * **3. Ağ Yapılandırması (IP Ayarları) ve Fiziksel Bağlantı**
   ![Image](https://github.com/user-attachments/assets/1270d13a-58f7-4396-8356-103f4efdfabf)-
 
   ---
-  * **4. CMD aracılığıyla yüklediğim paketler**
+  ### * **4. CMD aracılığıyla yüklediğim paketler**
   ![Image](https://github.com/user-attachments/assets/52f5b2db-6b6d-45ae-91a0-e1a359e15bd3)-
 
   ---
-  * **5. PC PLC'ye bağlanıldı mesajı**
+  ### * **5. PC PLC'ye bağlanıldı mesajı**
   ![Image](https://github.com/user-attachments/assets/a9a04724-6495-448a-945f-c9b6353418b4)-
 
   ---
-  * **6. Operand'da Verdiğim Değerler**
+  ### * **6. Operand'da Verdiğim Değerler**
   ![Image](https://github.com/user-attachments/assets/bc74c1cb-a47d-468a-a548-aededfa8a247)-
 
   ---
-  * **7. PLC'nin IP Ayarı Yapılması**
+  ### * **7. PLC'nin IP Ayarı Yapılması**
   ![Image](https://github.com/user-attachments/assets/29f9d28c-6019-45dd-adb5-3d9e368defe5)-
 
   ---
-  * **8. Algılanan Hız 55 km/h Üzerinde Olunca PLC İkaz Lamba Uyarısı Veriyor**
+  ### * **8. Algılanan Hız 55 km/h Üzerinde Olunca PLC İkaz Lamba Uyarısı Veriyor**
   ![Image](https://github.com/user-attachments/assets/b7062c9c-b536-496e-952b-ed71c1acd967)-
 
   ---
-  * **9. Algılanan Hız 55 km/h Altında Olduğunda PLC Uyarı Vermiyor**
+  ### * **9. Algılanan Hız 55 km/h Altında Olduğunda PLC Uyarı Vermiyor**
   ![Image](https://github.com/user-attachments/assets/8cfed555-2397-4bbb-9137-887dc8e08ff3)-
 
   ---
-  * **10. Son Olarak, Projenin Başarılı Sonucu**
+  ### * **10. Son Olarak, Projenin Başarılı Sonucu**
   ![Image](https://github.com/user-attachments/assets/1044993b-f42a-4919-b254-bc303be47ec6)-
 
   ---
